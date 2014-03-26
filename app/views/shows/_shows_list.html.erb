@@ -1,0 +1,21 @@
+<div>
+	<%@shows.each do |show| %>
+	  <div class="ficha">
+	    <h2><a><%=link_to show.name,show%></a></h2>
+	    <ul>
+	      <li>
+	        <span class="color_azul-ficha">Fecha de inicio:</span>
+	        <a><%= show.start_date %></a>
+	      </li>
+	      <li>
+	        <span class="color_azul-ficha">Fecha de término:</span>
+	        <a><%= show.end_date %></a>
+	      </li>
+	      <li>
+	        <span class="color_azul-ficha">Descripción:</span>
+	        <a><%= show.description %></a>
+	      </li>
+	    </ul>
+	  </div>
+	<%end%>
+</div>

@@ -1,0 +1,21 @@
+<header>
+	<div id="login-box">
+		<% if content_for? :login_box %>
+			<%= yield(:login_box) %>
+		<% else %>
+			  
+			<% if @current_user %>
+				Hola, <%= @current_user.first_name %>!
+				<%= link_to 'Salir!', session_path, method: :delete %>
+			<% else %>
+				<%= form_for :session, url: session_path do |f| -%>
+					<%= f.text_field :email, value: params[:session].try(:[], :email), placeholder: "e-mail" %>
+					<%= f.password_field :password, placeholder: "contraseña" %>
+					<%= f.submit "Ingresa", class: "btn" %>
+				<% end %>
+			<% end %>
+		<% end -%>
+		
+	</div>
+	<div class="clear"></div>
+</header>

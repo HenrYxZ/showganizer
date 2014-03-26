@@ -1,0 +1,34 @@
+<div>
+	<%@shows.each do |show| %>
+	  <div class="ficha ficha-show">
+	  	<div class="ficha-img">
+	  		<%if show.photo_shows.count>0%>
+	  			<%=image_tag show.photo_shows.first.data.url%>
+	  		<% else%>
+	  			<%=image_tag "missing.png"%>
+	  		<%end%>
+	  	</div>
+	    <h2><a><%=link_to show.name,show%></a></h2>
+	    <div>
+			<li>
+				<span class="color_azul-ficha">Release:</span>
+				<a><%= show.start_date %></a>
+			</li>
+			<li>
+				<span class="color_azul-ficha">End date:</span>
+				<a><%= show.end_date %></a>
+			</li>
+			<li>
+				<span class="color_azul-ficha">Description:</span>
+				<a><%= show.description %></a>
+			</li>
+		</div>
+	  </div>
+	<%end%>
+</div>
+<div class="container-button2">
+	<%if current_user_is_admin?%>
+		<%= link_to 'Create a new Show', new_show_path, :class=>'button add' %>
+	<%end%>
+</div>
+

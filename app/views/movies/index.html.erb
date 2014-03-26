@@ -1,0 +1,8 @@
+
+<%= render "movies_list"%>
+
+<div class="container-button2">
+  <%if current_user_is_admin?%>
+    <%= link_to 'New movie', new_polymorphic_path([@parent, :movie]), class: "button add" %>
+  <%end%>
+</div>

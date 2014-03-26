@@ -1,0 +1,39 @@
+<h1>Listing reviews</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Title</th>
+      <th>Body</th>
+      <th>Rating</th>
+      <th>User</th>
+      <th>Show</th>
+      <th>Movie</th>
+      <th>Series</th>
+      <th>Season</th>
+      <th>Episode</th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @reviews.each do |review| %>
+      <tr>
+        <td><%= review.title %></td>
+        <td><%= review.body %></td>
+        <td><%= review.rating %></td>
+        <td><%= review.user.name %></td>
+        <td><%= review.show.name if review.show %></td>
+        <td><%= review.movie.name if review.movie %></td>
+        <td><%= review.series.name if review.series %></td>
+        <td><%= review.season.name if review.season %></td>
+        <td><%= review.episode.name if review.episode %></td>
+        <td><%= link_to 'Show', review %></td>
+        <td><%= link_to 'Destroy', review, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>

@@ -1,0 +1,31 @@
+<% @reviews.each do |review| %>
+	<div class="review">
+		<div class="header">
+			<span> <%= review.title %> </span>
+			<% rating = review.rating %>
+			<div class="stars">
+			    <div class="rating">
+					<input type="radio" name= "rating_<%=review.id%>" value= 5 
+					id="star5_<%=review.id%>" disabled <%= "#{'checked'}" if (rating == 5)%> >
+					<label for="star5_<%=review.id%>" title="Rocks!">5 stars</label>
+					<input type="radio" name= "rating_<%=review.id%>" value= 4 
+						id="star4_<%=review.id%>" disabled <%= "#{'checked'}" if (rating == 4)%>>
+					<label for="star4_<%=review.id%>" title="Pretty good">4 stars</label>
+					<input type="radio" name= "rating_<%=review.id%>" value= 3 
+						id="star3_<%=review.id%>" disabled <%= "#{'checked'}" if (rating == 3)%>>
+					<label for="star3_<%=review.id%>" title="Meh">3 stars</label>
+					<input type="radio" name= "rating_<%=review.id%>" value= 2 
+						id="star2_<%=review.id%>" disabled <%= "#{'checked'}" if (rating == 2)%>>
+					<label for="star2_<%=review.id%>" title="Kinda bad">2 stars</label>
+					<input type="radio" name= "rating_<%=review.id%>" value= 1 
+						id="star1_<%=review.id%>" disabled <%= "#{'checked'}" if (rating == 1)%>>
+					<label for="star1_<%=review.id%>" title="Sucks big time">1 star</label>
+			    </div>
+  			</div>
+		</div>
+		<div class="body">
+			<p> <%= review.body %> </p>
+			<p> Created at <%= review.updated_at %> <p>
+		</div>
+	</div>
+<% end %>

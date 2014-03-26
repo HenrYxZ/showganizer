@@ -1,0 +1,28 @@
+<div>
+	<%@series.each do |series| %>
+	  <div class="ficha ficha-show">
+	  	<div class="ficha-img">
+	  		<%if series.photo_series.count>0%>
+	  			<%=image_tag series.photo_series.first.data.url%>
+	  		<% else%>
+	  			<%=image_tag "missing.png"%>
+	  		<%end%>
+	  	</div>
+	    <h2><a><%=link_to series.name,series%></a></h2>
+	    <div>
+			<li>
+				<span class="color_azul-ficha">Release:</span>
+				<a><%= series.start_date %></a>
+			</li>
+			<li>
+				<span class="color_azul-ficha">End date:</span>
+				<a><%= series.end_date %></a>
+			</li>
+			<li>
+				<span class="color_azul-ficha">Description:</span>
+				<a><%= series.description %></a>
+			</li>
+		</div>
+	  </div>
+	<%end%>
+</div>

@@ -1,0 +1,15 @@
+.group img{
+	height: 27px;
+	padding-top: 7px;
+	float: left;
+	display: block;
+	vertical-align: center;
+	padding-left: 17px;
+}
+.photo-presenter{
+	height: 40px;
+	background-color: rgb(0, 163, 255);
+	border-radius: 7px;
+	width: 25%;
+	float: left;
+}

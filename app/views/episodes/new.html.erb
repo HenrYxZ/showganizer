@@ -1,0 +1,8 @@
+<div class="ficha">
+<h2>New episode</h2>
+
+<%= render 'form' %>
+</div>
+<div class="container-button2">
+<%= link_to 'Back', polymorphic_path([@parent.series,@parent]), class: "button back" %>
+</div>

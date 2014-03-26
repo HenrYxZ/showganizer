@@ -1,0 +1,2 @@
+module PhotoSeasonsHelper
+end

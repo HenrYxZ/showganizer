@@ -1,0 +1,12 @@
+<%if @photo_movies.count>0%>
+<% @photo_movies.each do |photo_movie| %>
+  <div class="photo-presenter">
+    <div class="group">
+	    <%=image_tag photo_movie.data%>
+		<%= link_to '', [parent,photo_movie], method: :delete, data: { confirm: 'Are you sure?' }, class: "button-small delete" %>
+    </div>
+  </div>
+<% end %>
+<%else%>
+	You don't have photos for this movie
+<%end%>

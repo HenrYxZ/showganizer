@@ -1,0 +1,20 @@
+<% if @review.errors.any? %>
+	$error_container = $("#error_explanation")
+	if ($error_container.length === 0) {
+		$error_container = $('<div id="error_explanation"></div>');
+      	$("#new_review").append($error_container);
+	}
+	$error_container.html("<%= escape_javascript(render 'errors')%>");
+	$error_container.insertBefore($(".rating"));
+	/* Show the div error_explanation */
+  	$error_container.show(300);
+<% else %>
+	$("#review-container").toggle();
+	$error_container = $("#error_explanation")
+	if ($error_container.length !== 0) {
+		$error_container.remove();
+	}
+  	//$(".notice").html("<%= escape_javascript(flash[:notice]) %>");  
+	//$(".notice").show(300);
+  	alert("Review successfully created");
+<% end %>

@@ -1,0 +1,14 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Path:</strong>
+  <%= @photo_episode.path %>
+</p>
+
+<p>
+  <strong>Episode:</strong>
+  <%= @photo_episode.episode %>
+</p>
+
+<%= link_to 'Edit', edit_photo_episode_path(@photo_episode) %> |
+<%= link_to 'Back', photo_episodes_path %>

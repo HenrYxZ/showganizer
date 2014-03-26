@@ -1,0 +1,58 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Title:</strong>
+  <%= @review.title %>
+</p>
+
+<p>
+  <strong>Body:</strong>
+  <%= @review.body %>
+</p>
+
+<p>
+  <strong>Rating:</strong>
+  <%= @review.rating %>
+</p>
+
+<p>
+  <strong>User:</strong>
+  <%= @review.user.name %>
+</p>
+
+<p>
+  <% if @review.show %>
+    <strong>Show:</strong>
+    <%= @review.show.name if @review.show %>
+  <% end %>
+</p>
+
+<p>
+  <% if @review.movie %>
+    <strong>Movie:</strong>
+    <%= @review.movie.name if @review.movie %>
+  <% end %>
+</p>
+
+<p>
+  <% if @review.series %>
+    <strong>Series:</strong>
+    <%= @review.series.name if @review.series %>
+  <% end %>
+</p>
+
+<p>
+  <% if @review.season %>
+    <strong>Season:</strong>
+    <%= @review.season.name if @review.season %>
+  <% end %>
+</p>
+
+<p>
+  <% if @review.episode %>
+    <strong>Episode:</strong>
+    <%= @review.episode.name if @review.episode %>
+  <% end %>
+</p>
+
+<%= link_to 'Back', reviews_path %>

@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  name: MyString
+  release_date: 2013-10-10
+  description: MyText
+  number: 1
+  season_id: 
+
+two:
+  name: MyString
+  release_date: 2013-10-10
+  description: MyText
+  number: 1
+  season_id: 

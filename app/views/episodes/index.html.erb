@@ -1,0 +1,35 @@
+<h1>Listing episodes</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Release date</th>
+      <th>Description</th>
+      <th>Number</th>
+      <th>Season</th>
+      <th></th>
+      <th></th>
+      <th></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @episodes.each do |episode| %>
+      <tr>
+        <td><%= episode.name %></td>
+        <td><%= episode.release_date %></td>
+        <td><%= episode.description %></td>
+        <td><%= episode.number %></td>
+        <td><%= episode.season.name %></td>
+        <td><%= link_to 'Show', [@parent,episode] %></td>
+        <td><%= link_to 'Edit', edit_polymorphic_path([@parent,episode]) %></td>
+        <td><%= link_to 'Destroy', [@parent, episode], method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Episode', new_polymorphic_path([@parent, :episode]) %>

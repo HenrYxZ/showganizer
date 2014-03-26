@@ -1,0 +1,137 @@
+<div class="ficha">
+  <%if params[:show_id]%>
+    <%= link_to 'Back', @parent, class: "button back" %>
+  <%else%>
+    <%= link_to 'Back', series_index_path, class: "button back"%>
+  <%end%>
+
+  <div class="main-show">
+    <div class="title">
+      <h2><%=@series.name%></h2>
+    </div>
+
+    <div class="buttons">
+      <% if current_user %>
+        <% if @parent %>
+          <% if current_user.series.where(id: params[:id]).first != @series %>
+            <%= link_to "I've seen this", seen_show_series_path, class: "button add" %>
+          <% else %>
+            <%= link_to "I haven't seen this", unseen_show_series_path, class: "button delete" %>
+          <% end %>
+        <% else %>
+          <% if current_user.series.where(id: params[:id]).first != @series %>
+            <%= link_to "I've seen this", seen_series_path, class: "button add" %>
+          <% else %>
+            <%= link_to "I haven't seen this", unseen_series_path, class: "button delete" %>
+          <% end %>  
+        <% end %>
+        <% if WatchlistSeries.where(user: current_user, series: @series).first %>
+          <%= link_to "Remove from watchlist", remove_from_watchlist_series_path, class: "button delete" %>
+        <% else %>
+          <%= link_to "Add to watchlist", add_to_watchlist_series_path, class: "button add" %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <li>
+      <span class="color_azul-ficha">Start date:</span>
+      <a><%= @series.start_date %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">End date:</span>
+      <a><%= @series.end_date %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Description:</span>
+      <a><%= @series.description %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Category:</span>
+      <a><%= @series.category %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Images:</span>
+      <%if @series.photo_series.count>=1%>
+      <div class="flexslider">
+        <ul class="slides"> 
+          <% @series.photo_series.each do |photo| %>
+            <li>
+              <%= image_tag photo.data.url %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%else%>
+        <a>This series doesn't have photos</a>
+      <%end%>
+    </li>
+
+    <% if @trailer %>
+      <li>
+        <div id= "video"> <%= render partial: 'layouts/youtube' %> </div>
+      </li>
+    <% end %>
+
+    <li>
+      <span class="color_azul-ficha">Links:</span>
+      <div class="images-container">
+        <%= render :template => 'link_series/index', :locals => {:parent =>@series,:@link_series =>@photo_links_current_user}%> 
+      </div>
+    </li>
+
+    <%if current_user%>
+      <div class="appeared-menu"> 
+        <%= render :template => 'photo_series/index', :locals => {:parent =>@series,:@photo_series =>@photo_series_current_user}%> 
+      </div>
+    <%end%>
+    
+    <%if current_user_is_admin?%>
+      <div id='modifier'>
+        <%= link_to 'Edit this series', edit_polymorphic_path([@parent,@series]), class: "button edit"%> 
+        <%= link_to 'Delete this series',[@parent,@series], method: :delete, data: { confirm: 'Are you sure?'}, class: "button delete"%></td>
+      </div>
+    <%end%>
+
+    <div class="drop-menu">
+      <% if current_user %>
+
+        <div class="header-drop-menu">
+          <%= link_to "Write a review", "", id: "write-review", :class =>"extended", remote: true%>
+          <%="|"%>
+          <%= link_to "List reviews", "", id: "list-reviews", :class =>"extended", remote: true%>
+          <%= "|"%>
+          <%= link_to "Upload an image", "", id: "image-upload", :class =>"extended", remote: true %>
+          <%="|"%>
+          <%= link_to "Add a Youtube video", "", id: "video-upload", :class =>"extended", remote: true %>
+          <%= "|"%>
+          <%= link_to "Add a link", "", id: "link-add", :class =>"extended", remote: true %>
+        </div>
+        <div id="review-container" style="display: none" class="appered-menu"> <%=render 'review' %> </div>    
+        <div id="form-upload-image-container" style="display: none" class="appered-menu"> <%= render :partial => 'photo_series/form', :locals => {:@parent =>@series,:@photo_series =>PhotoSeries.new }%> </div>
+        <div id="form-create-link" style="display: none" class="appered-menu"> <%= render :partial => 'link_series/form', :locals => {:@parent =>@series,:@link =>LinkSeries.new }%> </div>
+        <div id="reviews" style="display: none" class="appered-menu"> <%= render partial: 'layouts/reviews' %> </div>
+        <div id="video-info" style="display: none" class="appered-menu">
+          <% if not @trailer %>
+            <%= form_tag(add_trailer_series_path(@series), method: "get") do %>
+              <%= text_field_tag :video_url, params[:video_url] %>
+              <%= submit_tag "Send" %>
+            <% end %>
+          <% else %>
+            <%= link_to "Remove trailer", remove_trailer_series_path, class: "button delete"%>
+          <% end %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div><h1>Seasons</h1></div>
+<div class="list-items">
+  <%=render 'seasons_show'%>
+</div>
+
+<div class="container-button2">
+  <%if current_user_is_admin?%>
+    <%= link_to 'Create new season', new_polymorphic_path([@series, Season]), :class=>'button add' %>
+  <%end%>
+</div>
+</div>

@@ -1,0 +1,63 @@
+<%= form_for(@review) do |f| %>
+  <% if @review.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@review.errors.count, "error") %> prohibited this review from being saved:</h2>
+
+      <ul>
+      <% @review.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+  <div class="field">
+    <%= f.label :rating %><br>
+    <%= f.number_field :rating %>
+  </div>
+  <div class="field">
+    <%= f.label :user %><br>
+    <%= f.text_field :user %>
+  </div>
+  <div class="field">
+    <% if @review.show %>
+      <%= f.label :show %><br>
+      <%= f.text_field :show %>
+    <% end %>
+  </div>
+  <div class="field">
+    <% if @review.movie %>
+      <%= f.label :movie %><br>
+      <%= f.text_field :movie %>
+    <% end %>
+  </div>
+  <div class="field">
+    <% if @review.series %>
+      <%= f.label :series %><br>
+      <%= f.text_field :series %>
+    <% end %>
+  </div>
+  <div class="field">
+    <% if @review.season %>
+      <%= f.label :season %><br>
+      <%= f.text_field :season %>
+    <% end %>
+  </div>
+  <div class="field">
+    <% if @review.episode %>
+      <%= f.label :episode %><br>
+      <%= f.text_field :episode %>
+    <% end %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

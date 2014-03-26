@@ -1,0 +1,25 @@
+<div class="ficha">
+  <h2>Users</h2>
+  <% @users.each do |user| %>
+    <div class="user">
+      <%= image_tag avatar_url(user) %>
+      <li>
+        <span class="color_azul-ficha">Name:</span>
+        <a><%= user.name %></a>
+      </li>
+      <li>
+        <span class="color_azul-ficha">Type of user:</span>
+        <a><%= user.type_of_user %></a>
+      </li>
+      <li>
+        <span class="color_azul-ficha">List of shows:</span>
+        <div class="shows-container-seen-user">
+          <%= show_list(user.shows) %>
+        </div>
+      </li>
+    </div>
+  <% end %>
+</div>
+<div class="container-button2">
+  <%= link_to 'New User', new_user_path, class: "button add" %>
+</div>

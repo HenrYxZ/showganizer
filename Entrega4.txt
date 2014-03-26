@@ -1,0 +1,43 @@
+﻿IIC2513 - Tecnologías y Aplicaciones Web        II-2013 - Prof. Raúl Montes
+
+Proyecto Semestral - Entrega 4
+
+Fecha límite: domingo 27 de octubre a las 23:59:59.999
+Introducción
+Su aplicación ya va tomando forma. Sus usuarios pueden realizar varias tareas, pero aún faltan algunos vacíos por ahí y por allá. Esta es la hora de terminar. Luego de esta entrega, la funcionalidad de su aplicación estará completa. El usuario podrá hacer todo lo que según sus proyectos debiera poder hacer.
+Trabajo a realizar
+En el anexo del enunciado podrán revisar requerimientos mínimos específicos para cada proyecto, pero en términos generales consideren que, luego de esta entrega, toda la funcionalidad de su aplicación debe estar terminada. Esto significa también terminar requisitos pendientes de entregas anteriores que puedan tener incompletos. Sólo les debe restar enriquecer el frontend con JavaScript y Ajax (siguiente entrega :) ), y quizá algunos detalles del estilo de su aplicación (pueden dejar pendiente los últimos ajustes de CSS que necesiten para las siguientes entregas).
+Cualquier duda general sobre el trabajo a realizar pueden consultarla en el foro del curso.  Cualquier duda particular sobre su proyecto, pueden consultarla directamente a su ayudante.
+Forma de entrega
+La aplicación debe quedar instalada en Heroku. El código debe quedar disponible en su repositorio Github. Incluyan un archivo "README" con cualquier indicación que consideren importante para el ayudante que les corregirá.
+Trabajo en Equipo
+Recuerden la recomendación respecto a que trabajen en pareja y no en forma individual repartiéndose el trabajo, pues de esta manera ambos(as) aprenderán de todo el proceso.
+________________
+Especificaciones para cada proyecto
+
+Showganizer
+* Incluir la posibilidad de escribir reseñas de películas, series, temporadas o episodios.
+[ FALTA]
+
+* Categorizar los ítems agregados a la cuenta de un usuario (por ejemplo, que How I Met Your Mother tenga la categoría Comedia, o que The Walking Dead tenga la categoría Thriller).
+[ LISTO ]
+
+* Incluir la posibilidad de agregar fotos y links interesantes a los ítems.
+[ FALTA ]
+
+* Manejar un watchlist de usuario con los ítems que desearían ver en el futuro.
+[FALTA]
+
+* Búsqueda avanzada (filtros como género, año, actores, etc).
+[FALTA]
+
+* Sistema de puntaje de usuarios (en base a acciones o asignaciones).
+[FALTA]
+
+* Enviar notificaciones por correo, en al menos dos tipos de eventos a elección de ustedes (por ejemplo, enviar un correo cuando alguien escribe una reseña después de ti, o al terminar de ver una serie, enviar un correo con recomendaciones de nuevas series).
+[FALTA]
+
+No es necesario:
+* Funcionalidad JavaScript y AJAX como autocompletar búsquedas, agregar ítems de a la cuenta o al watchlist de forma asíncrona, etc.
+* Validación en el cliente.
+* Incorporación de API social como Facebook (para poder competir en base a los puntajes de los usuarios).

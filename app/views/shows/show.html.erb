@@ -1,0 +1,137 @@
+<div class="ficha">
+
+  <%= link_to 'Back', shows_path, id: "back", class: "button back" %>
+
+  <div class="main-show">
+    <div class="title">
+      <h2><%=@show.name%></h2>
+    </div>
+
+    <div class="buttons">
+      <% if current_user %>
+        <% if current_user.shows.where(id: params[:id]).first != @show %>
+          <%= link_to "I have seen this show", seen_show_path, class: "button add" %>
+        <% else %>
+          <%= link_to "I haven't seen this show", unseen_show_path, class: "button delete" %>
+        <% end %>
+        <% if WatchlistShow.where(user: current_user, show: @show).first %>
+          <%= link_to "Delete from watchlist", remove_from_watchlist_show_path(@show), class: "button delete" %>
+        <% else %>
+          <%= link_to "Add to watchlist", add_to_watchlist_show_path, class: "button add" %>
+        <% end %>
+      <% end %>
+    </div>
+
+    <li>
+      <span class="color_azul-ficha">Released:</span>
+      <a><%= @show.start_date %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">End Date:</span>
+      <a><%= @show.end_date %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Description:</span>
+      <a><%= @show.description %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Category:</span>
+      <a><%= @show.category %></a>
+    </li>
+    <li>
+      <span class="color_azul-ficha">Pictures:</span>
+      <%if @show.photo_shows.count>0%>
+      <div class="flexslider">
+        <ul class="slides"> 
+          <% @show.photo_shows.each do |photo| %>
+            <li>
+              <%= image_tag photo.data.url %>
+            </li>
+          <% end %>
+        </ul>
+      </div>
+      <%else%>
+        <a>This show doesn't have photos</a>
+      <%end%>
+    </li>
+
+    <% if @trailer %>
+      <li>
+        <div id= "video"> <%= render partial: 'layouts/youtube' %> </div>
+      </li>
+    <% end %>
+
+    <li>
+      <span class="color_azul-ficha">Links:</span>
+      <div class="images-container">
+        <%= render :template => 'link_shows/index', :locals => {:@parent =>@show,:@link_shows =>@photo_links_current_user}%> 
+      </div>
+    </li>
+
+    <%if current_user%>
+      <div class="appeared-menu"> 
+        <%= render :template => 'photo_shows/index', :locals => {:@parent =>@show,:@photo_shows =>@photo_shows_current_user}%> 
+      </div>
+    <%end%>
+    
+    <%if current_user_is_admin?%>
+      <div id='modifier'>
+        <%= link_to 'Edit this show', edit_polymorphic_path([@show]), class: "button edit"%>
+        <%= link_to 'Delete this show',[@show], method: :delete, data: { confirm: 'Are you sure?'}, class: "button delete"%>
+      </div>
+    <%end%>
+
+    <div class="drop-menu">
+      <% if current_user %>
+        <div class="header-drop-menu">
+          <%= link_to "Write a review", "", id: "write-review", :class =>"extended", remote: true%>
+          <%= "|"%>
+          <%= link_to "List reviews", "", id: "list-reviews", :class =>"extended", remote: true%>
+          <%= "|"%>
+          <%= link_to "Upload an image", "", id: "image-upload", :class =>"extended", remote: true %>
+          <%= "|"%>
+          <%= link_to "Add a Youtube video", "", id: "video-upload", :class =>"extended", remote: true %>
+          <%= "|"%>
+          <%= link_to "Add a link", "", id: "link-add", :class =>"extended", remote: true %>
+        </div>
+
+        <div id="video-info" style="display: none" class="appered-menu">
+          <% if not @trailer %>
+            <%= form_tag(add_trailer_show_path(@show), method: "get") do %>
+              <%= text_field_tag :video_url, params[:video_url] %>
+              <%= submit_tag "Send" %>
+            <% end %>
+          <% else %>
+            <%= link_to "Remove trailer", remove_trailer_show_path, class: "button delete"%>
+          <% end %>
+        </div>
+
+        <div id="review-container" style="display: none" class="appered-menu">
+          <%=render 'review' %> 
+        </div> 
+        <div id="form-upload-image-container" style="display: none" class="appered-menu">
+          <%= render :partial => 'photo_shows/form', :locals => {:@parent =>@show,:@photo_show =>PhotoShow.new }%> </div>
+        <div id="form-create-link" style="display: none" class="appered-menu"> 
+          <%= render :partial => 'link_shows/form', :locals => {:@parent =>@show,:@link =>LinkShow.new }%>
+         </div>
+        <div id="reviews" style="display: none" class="appered-menu">
+          <%= render partial: 'layouts/reviews' %>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</div>
+<div><h1>Series</h1></div>
+<div class="list-items">
+  <%=render 'series_show'%>
+</div>
+<div><h1>Movies</h1></div>
+<div class="list-items">
+  <%=render 'movies_show'%>
+</div>
+<div class="container-button2">
+  <%if current_user_is_admin?%>
+    <%= link_to 'Create a new series', new_polymorphic_path([@show, Series]), :class=>'button add' %>
+    <%= link_to 'Create a new movie', new_polymorphic_path([@show, Movie]), :class=>'button add' %>
+  <%end %>
+</div>

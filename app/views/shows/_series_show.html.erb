@@ -1,0 +1,7 @@
+<div>
+	<%if @series!=[]%>
+		<%@series.each do |serietmp|%>
+			<div class="fichaseries"><h2><a><%=link_to serietmp.name, [@show,serietmp]%></a></h2></div>
+		<%end%>
+	<%end%>
+</div>

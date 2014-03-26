@@ -1,0 +1,17 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  url: MyString
+  show_id: 1
+  movie_id: 1
+  series_id: 1
+  season_id: 1
+  episode_id: 1
+
+two:
+  url: MyString
+  show_id: 1
+  movie_id: 1
+  series_id: 1
+  season_id: 1
+  episode_id: 1

@@ -1,0 +1,24 @@
+<%= form_for([@parent,@photo_movie]) do |f| %>
+  <% if @photo_movie.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@photo_movie.errors.count, "error") %> prohibited this photo_movie from being saved:</h2>
+
+      <ul>
+      <% @photo_movie.errors.full_messages.each do |msg| %>
+        <li><%= msg %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+  <div class="field">
+    <%= f.label :description %><br>
+    <%= f.text_area :description %>
+  </div>
+  <div class="field">
+    <%= f.label :data %><br>
+    <%= f.file_field  :data %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

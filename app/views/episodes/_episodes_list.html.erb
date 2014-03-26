@@ -1,0 +1,17 @@
+<div>
+	<%@episodes.each do |episode| %>
+	  <div class="ficha">
+	    <h2><a><%=link_to episode.name,episode%></a></h2>
+	    <ul>
+	      <li>
+	        <span class="color_azul-ficha">Fecha de estreno:</span>
+	        <a><%= episode.release_date %></a>
+	      </li>
+	      <li>
+	        <span class="color_azul-ficha">Descripción:</span>
+	        <a><%= episode.description %></a>
+	      </li>
+	    </ul>
+	  </div>
+	<%end%>
+</div>

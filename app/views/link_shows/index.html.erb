@@ -1,0 +1,13 @@
+<% unless @show.link_shows.blank? %>
+  <% @show.link_shows.each do |link| %>
+  <tr>
+    <div class="new-link">
+      <%=link_to link.link_text, url_with_protocol(link.link_text), :target=>:blank%>
+      <%=link_to 'Edit link', edit_show_link_show_path(@show.id,link.id) if link.user===current_user %>
+      <%=link_to 'Delete link', [@show, link], method: :delete, data: { confirm: 'Are you sure?' } if link.user===current_user %>
+    </div>
+  </tr>
+  <% end %>
+<%else%>
+  This show don't haven links
+<% end %>

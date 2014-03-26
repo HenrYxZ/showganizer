@@ -1,0 +1,4 @@
+<% content_for :login_box do %>
+	<div class="text">Hola, <%= current_user.first_name %>!</div>
+	<div class="button"><%= link_to "Salir", session_path, method: :delete %></div>
+<% end %>

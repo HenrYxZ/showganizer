@@ -1,0 +1,7 @@
+<div>
+<%if @episodes!=[]%>
+	<%@episodes.each do |episodetmp|%>
+		<div class="fichaseries"><h2><a><%=link_to episodetmp.name,[@season,episodetmp]%></a></h2></div>
+	<%end%>
+<%end%>
+</div>

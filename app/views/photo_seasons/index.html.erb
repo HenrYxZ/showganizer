@@ -1,0 +1,12 @@
+<%if @photo_seasons.count>0%>  
+  <% @photo_seasons.each do |photo_season| %>
+    <div class="photo-presenter">
+      <%=image_tag photo_season.data%>
+      <div class="float-buttons">
+        <td><%= link_to '', [parent,photo_season], method: :delete, data: { confirm: 'Are you sure?' }, class: "button-small delete" %></td>
+      </div>
+    </div>
+  <% end %>
+<%else%>
+  You don't have photos for this season
+<%end%>

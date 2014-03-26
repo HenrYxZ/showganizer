@@ -1,0 +1,29 @@
+<%@shows&& @shows.each do |show| %>
+<%if show%>
+  <div class="ficha">
+    <h2><a><%=link_to show.name,show%></a></h2>
+    <ul>
+      <li>
+        <span class="color_azul-ficha">Start date:</span>
+        <a><%= show.start_date %></a>
+      </li>
+      <li>
+        <span class="color_azul-ficha">End date:</span>
+        <a><%= show.end_date %></a>
+      </li>
+      <li>
+        <span class="color_azul-ficha">Discription:</span>
+        <a><%= show.description %></a>
+      </li>
+    </ul>
+    <div id="modifier">
+      <td><%= link_to 'Show', show %></td>
+      <%if current_user_is_admin?%>
+        <td><%= link_to 'Edit', edit_show_path(show) %></td>
+        <td><%= link_to 'Destroy', show, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      <%end%>
+    </div>
+  </div>
+
+<%end%>
+<%end%>

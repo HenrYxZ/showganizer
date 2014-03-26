@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html>
+<head>
+<title>Showganizer</title>
+  <%= stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true %>
+  <%= javascript_include_tag "application", "data-turbolinks-track" => true%>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+
+	<div id="contenido-centrado">
+		<header>
+			<%= link_to image_tag('logo.jpg', alt: "Logo Showganizer", title: "Showganizer", id: "logo"), root_path, class: "logo-link" %>
+		</header>
+		<ul id="menu">
+			  <li>
+			    <a href="/" class="boton1">Homepage</a>
+			  </li>
+			  <li>
+			    <%= link_to 'Shows', shows_path, class: "boton1" %>
+			  </li>
+			  <li>
+			    <%= link_to 'Movies', movies_path, class: "boton1" %>
+			  </li>
+			  <li>
+			    <%= link_to 'Series', Series, class: "boton1" %>
+			  </li>
+			  <li>
+			    <%= link_to 'Watchlist', watchlist_path, class: "boton1" %>
+			  </li>
+		</ul>
+		<div class="input-append" id="buscador">
+			<%= form_tag(shows_path, :method => "get") do %>
+			    <%= text_field_tag :search, params[:search], placeholder: "Search Shows"%>
+			    <%= submit_tag "Search" %>
+			<% end %>
+		</div>
+		<div id="columna-izq">
+			<%if not current_user%>
+				<%=render template: 'sessions/new'%>
+			<%else%>
+				<%=render 'layouts/welcome'%>
+			<%end%>
+		</div>
+		<div id="columna-central">
+			<%= yield %>
+		</div>
+	</div>
+</body>
+</html>

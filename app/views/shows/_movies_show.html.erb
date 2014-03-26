@@ -1,0 +1,8 @@
+<div>
+	<%if @movies!=[]%>
+	<hr>
+		<%@movies.each do |movietmp|%>
+		<div class="fichaseries"><h2><a><%=link_to movietmp.name, [@show,movietmp]%></a></h2></div>
+		<%end%>
+	<%end%>
+</div>

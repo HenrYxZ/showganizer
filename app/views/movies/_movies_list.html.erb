@@ -1,0 +1,24 @@
+<div>
+	<%@movies.each do |movie| %>
+	  <div class="ficha ficha-show">
+	  	<div class="ficha-img">
+	  		<%if movie.photo_movies.count>0%>
+	  			<%=image_tag movie.photo_movies.first.data.url%>
+	  		<% else%>
+	  			<%=image_tag "missing.png"%>
+	  		<%end%>
+	  	</div>
+	    <h2><a><%=link_to movie.name,movie%></a></h2>
+	    <div>
+			<li>
+				<span class="color_azul-ficha">Release:</span>
+				<a><%= movie.release_date %></a>
+			</li>
+			<li>
+				<span class="color_azul-ficha">Description:</span>
+				<a><%= movie.description %></a>
+			</li>
+		</div>
+	  </div>
+	<%end%>
+</div>

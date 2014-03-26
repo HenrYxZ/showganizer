@@ -1,0 +1,32 @@
+<%= form_for(@review, remote: true) do |f| %>
+
+  <div class="rating">
+    <legend>Please rate:</legend>
+    <%= f.radio_button :rating, 5, :id=>"star5" %>
+    <label for="star5" title="Rocks!">5 stars</label>
+    <%= f.radio_button :rating, 4, :id=>"star4" %>
+    <label for="star4" title="Pretty good">4 stars</label>
+    <%= f.radio_button :rating, 3, :id=>"star3" %>
+    <label for="star3" title="Meh">3 stars</label>
+    <%= f.radio_button :rating, 2, :id=>"star2" %>
+    <label for="star2" title="Kinda bad">2 stars</label>
+    <%= f.radio_button :rating, 1, :id=>"star1" %>
+    <label for="star1" title="Sucks big time">1 star</label>
+  </div>
+
+  <div class="field">
+    <%= f.label :title %><br>
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%= f.label :body %><br>
+    <%= f.text_area :body %>
+  </div>
+
+  <%= f.hidden_field :user_id, value: current_user.id %>
+  <%= f.hidden_field :movie_id, value: @movie.id %>
+
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

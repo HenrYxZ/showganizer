@@ -1,0 +1,12 @@
+<%if @photo_episodes.count>0%>
+<% @photo_episodes.each do |photo_episode| %>
+  <div class="photo-presenter">
+    <div class="group">
+      <%=image_tag photo_episode.data%>
+    <%= link_to '', [@episode,photo_episode], method: :delete, data: { confirm: 'Are you sure?' }, class: "button-small delete" %>
+    </div>
+  </div>
+<% end %>
+<%else%>
+  You don't have photos for this episode
+<%end%>

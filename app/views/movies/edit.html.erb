@@ -1,0 +1,12 @@
+<div class="ficha">
+<h2>Edit movie</h2>
+
+<%= render 'form' %>
+</div>
+<div class="container-button2">
+	<%if params[:show_id]%>
+		<%= link_to 'Back', [@parent,@movie], class: "button back" %>
+	<%else%>
+		<%= link_to 'Back', movies_path, class: "button back" %>
+	<%end%>
+</div>

@@ -1,0 +1,249 @@
+/*
+ * This is a manifest file that'll be compiled into application.css, which will include all the files
+ * listed below.
+ *
+ * Any CSS and SCSS file within this directory, lib/assets/stylesheets, vendor/assets/stylesheets,
+ * or vendor/assets/stylesheets of plugins, if any, can be referenced here using a relative path.
+ *
+ * You're free to add application-wide styles to this file and they'll appear at the top of the
+ * compiled file, but it's generally better to create a new file per style scope.
+ *= require flexslider.css
+ *= require jquery.ui.all
+ *= require_self
+ *= require_tree .
+ */
+
+#logo {
+  	height: 100px;
+  	padding-left: 37px;
+}
+
+#menu li a { 
+	color: #FFFFFF;
+	display: block;
+	float: left;
+	font-size: 16px;
+	font-weight: 700;
+	text-decoration: none;
+	text-shadow: #000000 1px 1px 0px;
+	vertical-align: middle;
+	text-align: center;
+}
+
+.boton1{ 
+	background-color: #2979E6;
+	height: 20px;
+	margin-left: 2px;
+	padding: 10px 40px 13px 21px;
+	width: 84px;
+}
+
+.alone-text{
+	text-align: center;
+	color: #FFFFFF;
+	padding-bottom: 10px;
+}
+
+.elements-seen {
+	padding-top: 10px;
+}
+
+.button-seen-item{
+	background-color: blue;
+	padding-top: 10px;
+	margin-top: 10px;
+	height: 20px;
+	width: 150px;
+	text-align: center;
+	border-radius: 7px;
+}
+
+.button-seen-item a{
+	font-size: 13px;
+}
+
+#buscador { 
+	background-color: #aaaaaa;
+	height: 20px;
+	margin-left: 930px;
+	padding: 10px 10px 13px 10px;
+	position: relative;
+	width: 225px;
+}
+
+#contenido-centrado { 
+	margin: auto;
+	overflow: hidden;
+	padding-top: 33px;
+	width: 1200px;
+}
+
+#columna-central { 
+	border-radius: 15px 15px 15px 15px;
+	background-color: #aaaaaa;
+	float: left;
+	margin-left: 20px;
+	margin-top: 20px;
+	width: 617px;
+	padding-top: 20px;
+	padding-bottom: 20px;
+}
+
+#columna-izq {
+	border-radius: 15px 15px 15px 15px;
+	background-color: #aaaaaa;
+	float: left;
+	margin-top: 20px;
+	margin-left: 40px;
+	width: 210px;
+	padding: 20px;
+}
+
+.image-show {
+	height: 90px;
+}
+
+.images-container {
+	padding-bottom: 30px;
+	margin-left: 40px;
+	height: 30px;
+}
+
+.button
+{        
+	display: inline-block;
+	white-space: nowrap;
+	background-color: #ccc;
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#eee), to(#ccc));
+	background-image: -webkit-linear-gradient(top, #eee, #ccc);
+	background-image: -moz-linear-gradient(top, #eee, #ccc);
+	background-image: -ms-linear-gradient(top, #eee, #ccc);
+	background-image: -o-linear-gradient(top, #eee, #ccc);
+	background-image: linear-gradient(top, #eee, #ccc);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#eeeeee', EndColorStr='#cccccc');
+	border: 1px solid #777;
+	padding: 0 1.5em;
+	margin: 0.5em;
+	font: bold 1em/2em Arial, Helvetica;
+	text-decoration: none;
+	color: #333;
+	text-shadow: 0 1px 0 rgba(255,255,255,.8);
+	-moz-border-radius: .2em;
+	-webkit-border-radius: .2em;
+	border-radius: .2em;
+	-moz-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	-webkit-box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+	box-shadow: 0 0 1px 1px rgba(255,255,255,.8) inset, 0 1px 0 rgba(0,0,0,.3);
+}
+
+.button:hover
+{
+	background-color: #ddd;        
+	background-image: -webkit-gradient(linear, left top, left bottom, from(#fafafa), to(#ddd));
+	background-image: -webkit-linear-gradient(top, #fafafa, #ddd);
+	background-image: -moz-linear-gradient(top, #fafafa, #ddd);
+	background-image: -ms-linear-gradient(top, #fafafa, #ddd);
+	background-image: -o-linear-gradient(top, #fafafa, #ddd);
+	background-image: linear-gradient(top, #fafafa, #ddd);
+	filter: progid:DXImageTransform.Microsoft.gradient(startColorStr='#fafafa', EndColorStr='#dddddd');        
+}
+
+.button:active
+{
+	-moz-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	-webkit-box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	box-shadow: 0 0 4px 2px rgba(0,0,0,.3) inset;
+	position: relative;
+	top: 1px;
+}
+
+.button:focus
+{
+	outline: 0;
+	background: #fafafa;
+}    
+
+.button:before
+{
+	background: #ccc;
+	background: rgba(0,0,0,.1);
+	float: left;        
+	width: 1em;
+	text-align: center;
+	font-size: 1.5em;
+	margin: 0 1em 0 -1em;
+	padding: 0 .2em;
+	-moz-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-webkit-box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	box-shadow: 1px 0 0 rgba(0,0,0,.5), 2px 0 0 rgba(255,255,255,.5);
+	-moz-border-radius: .15em 0 0 .15em;
+	-webkit-border-radius: .15em 0 0 .15em;
+	border-radius: .15em 0 0 .15em;
+        pointer-events: none;        
+}
+
+/* Hexadecimal entities for the icons */
+
+.add:before
+{
+	content: "\271A";
+}
+
+.edit:before
+{
+	content: "\270E";        
+}
+
+.delete:before
+{
+	content: "\2718";																																																																																																																																																																																																																												       
+}
+
+.save:before
+{
+	content: "\2714";        
+}
+
+.email:before
+{
+	content: "\2709";        
+}
+
+.like:before
+{
+	content: "\2764";        
+}
+
+.next:before
+{
+	content: "\279C";
+}
+
+.back:before{
+	content: "\25c4";
+}
+
+.star:before
+{
+	content: "\2605";
+}
+
+.spark:before
+{
+	content: "\2737";
+}
+
+.play:before
+{
+	content: "\25B6";
+} 
+
+.seen:before
+{
+	content: "\f06e";
+}
+
+.not-seen:before
+{
+	content: "\f070";
+}

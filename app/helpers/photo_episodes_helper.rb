@@ -1,0 +1,2 @@
+module PhotoEpisodesHelper
+end

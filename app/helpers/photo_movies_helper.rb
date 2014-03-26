@@ -1,0 +1,2 @@
+module PhotoMoviesHelper
+end

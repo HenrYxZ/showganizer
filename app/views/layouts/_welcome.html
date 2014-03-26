@@ -1,0 +1,16 @@
+<header>
+	<div id="new-session">
+		<div class="alone-text">Hello, <%= current_user.name %>!</div>
+		<%= image_tag avatar_url(current_user) %>
+		<div><%= link_to "Log out", session_path, method: :delete, class: "btn"%></div>
+		<diV class="elements-seen">
+			<%= link_to "Viewed shows", seen_shows_path, class: "btn"%> 
+			<%= link_to "Viewed movies", seen_movies_path, class: "btn"%> 
+			<%= link_to "Viewed series", seen_all_series_path, class: "btn"%> 
+			<%if current_user_is_admin?%>
+					<%=link_to "Users", users_path, class: "btn"%>
+			<%end%>
+		</diV>
+	</div>
+	<div class="clear"></div>
+</header>

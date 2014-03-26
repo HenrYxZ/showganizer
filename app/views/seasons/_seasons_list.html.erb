@@ -1,0 +1,21 @@
+<div>
+	<%@seasons.each do |season| %>
+	  <div class="ficha">
+	    <h2><a><%=link_to season.name,season%></a></h2>
+	    <ul>
+	      <li>
+	        <span class="color_azul-ficha">Fecha de inicio:</span>
+	        <a><%= season.start_date %></a>
+	      </li>
+	      <li>
+	        <span class="color_azul-ficha">Fecha de término:</span>
+	        <a><%= season.end_date %></a>
+	      </li>
+	      <li>
+	        <span class="color_azul-ficha">Descripción:</span>
+	        <a><%= season.description %></a>
+	      </li>
+	    </ul>
+	  </div>
+	<%end%>
+</div>
